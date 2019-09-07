@@ -9,3 +9,6 @@ class Seguro(models.Model):
     type = models.IntegerField(blank=True, null=True)  # Cómo conseguir una librería de seguros
     x_coord = models.IntegerField()
     y_coord = models.IntegerField()
+
+    def __str__(self):
+        return "{} | ({}, {})".format(self.sector, self.x_coord, self.y_coord)

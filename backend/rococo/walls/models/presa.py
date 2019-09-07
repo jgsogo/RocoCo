@@ -10,6 +10,9 @@ class Presa(models.Model):
     x_coord = models.IntegerField()
     y_coord = models.IntegerField()
 
+    def __str__(self):
+        return "{} | ({}, {})".format(self.sector, self.x_coord, self.y_coord)
+
 
 class PresaCatch(models.Model):
     presa = models.ForeignKey(Presa, on_delete=models.CASCADE)

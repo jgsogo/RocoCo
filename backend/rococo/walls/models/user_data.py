@@ -14,11 +14,11 @@ REPETITION2_TYPE = Choices((0, 'vista', _('A vista')),
 
 class Repetition(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
-    datetime = models.DateTimeField(auto_now_add=True, blank=True)
+    datetime = models.DateTimeField(blank=True)
 
     route = models.ForeignKey(Route, on_delete=models.PROTECT)
-    rep1 = models.IntegerField(REPETITION1_TYPE, blank=True)
-    rep2 = models.IntegerField(REPETITION2_TYPE, blank=True)
+    rep1 = models.IntegerField(choices=REPETITION1_TYPE, blank=True, null=True)
+    rep2 = models.IntegerField(choices=REPETITION2_TYPE, blank=True, null=True)
 
     class Meta:
         ordering = ['-datetime', '-timestamp']

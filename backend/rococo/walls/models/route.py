@@ -25,12 +25,12 @@ class Route(models.Model):
     type = models.IntegerField(choices=ROUTE_TYPE, default=ROUTE_TYPE.route)
     degree = models.ForeignKey(Degree, on_delete=models.PROTECT)
 
-    presas = models.ManyToManyField(Presa, through=PresaCatch)
-    seguros = models.ManyToManyField(Seguro)
+    presas = models.ManyToManyField(Presa, through=PresaCatch, blank=True)
+    seguros = models.ManyToManyField(Seguro, blank=True)
 
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return "{} | {}".format(self.sector, self.name)
 
     # TODO: Validate 'sector' is inside 'sectors_by'

@@ -1,5 +1,5 @@
 
-from .Area import Area
-from .Degree import Degree
-from .Route import Route
-from .Sector import Sector
+from .area import Area
+from .degree import Degree
+from .route import Route
+from .sector import Sector

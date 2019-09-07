@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 from model_utils import Choices
 
-from walls.models import Route
+from walls.models.route import Route
 
 # TODO: Terminology
 REPETITION1_TYPE = Choices((0, 'pie_libre', _('Pie libre')),

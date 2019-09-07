@@ -17,7 +17,7 @@ ROUTE_TYPE = Choices((0, 'route', _('route')),
 class Route(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200)
-    sector = models.ForeignKey(Sector, on_delete=models.PROTECT, related_name="route_start_set",
+    sector = models.ForeignKey(Sector, on_delete=models.PROTECT,
                                help_text=_("Sector where the route is. If it crosses several"
                                            " sectors, then this is where the the route starts"))
     sectors_by = models.ManyToManyField(Sector, related_name="route_all")  # Crossings can traverse several sectors

@@ -7,7 +7,9 @@ from model_utils import Choices
 
 from walls.models import Degree
 
-ROUTE_TYPE = Choices((0, 'route', _('route')), (1, 'boulder', _('boulder')), (2, 'crossing', _('crossing')))
+ROUTE_TYPE = Choices((0, 'route', _('route')),
+                     (1, 'boulder', _('boulder')),
+                     (2, 'crossing', _('crossing')))
 
 
 class Route(models.Model):
@@ -21,6 +23,8 @@ class Route(models.Model):
 
     presas = jsonfield.JSONField(blank=True, help_text=_("List of coordinates"))  # TODO: translate
     seguros = jsonfield.JSONField(blank=True, help_text=_("List of coordinates"))  # TODO: translate
+
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
